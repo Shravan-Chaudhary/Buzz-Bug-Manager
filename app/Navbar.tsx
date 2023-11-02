@@ -30,3 +30,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+// postgres://bitznatch1110:Blxz2FvpOdR9@ep-winter-tree-91319555.ap-southeast-1.aws.neon.tech/issue-tracker

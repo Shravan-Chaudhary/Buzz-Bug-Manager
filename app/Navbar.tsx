@@ -1,4 +1,5 @@
 'use client'
+import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -10,21 +11,27 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className="mb-5 flex h-14 items-center space-x-6 border-b px-5">
-      <Link href={'/'}>Logo</Link>
-      <ul className="flex space-x-6">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`${
-              currentPath === link.href ? 'text-zinc-900' : 'text-zinc-500'
-            } transition-colors hover:text-zinc-800`}
-          >
-            {link.label}
+    <nav className="sticky inset-x-0 top-0 z-30 mb-5 h-14 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all ">
+      <MaxWidthWrapper>
+        <div className="flex h-14 items-center justify-between border-b border-zinc-200">
+          <Link href={'/'} className="z-40 font-semibold md:text-xl">
+            <span>Logo</span>
           </Link>
-        ))}
-      </ul>
+          <ul className="flex items-center space-x-6">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${
+                  currentPath === link.href ? 'text-zinc-900' : 'text-zinc-500'
+                } z-40 font-semibold transition-colors hover:text-zinc-800 md:text-lg`}
+              >
+                <span>{link.label}</span>
+              </Link>
+            ))}
+          </ul>
+        </div>
+      </MaxWidthWrapper>
     </nav>
   )
 }

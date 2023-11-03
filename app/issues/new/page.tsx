@@ -1,17 +1,19 @@
+'use client'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import SimpleMDE from "react-simplemde-editor"
+import "easymde/dist/easymde.min.css"
 import React from 'react'
 
 const NewIssuePage = () => {
   return (
     <>
       <MaxWidthWrapper>
-        <div className="space-y-5">
+        <div className="max-w-xl space-y-5">
           <h1>Create New Issue</h1>
-          <Input type="email" placeholder="Email" className="max-w-xl" />
-          <Textarea placeholder="Type your message here." className="max-w-xl" />
+          <Input type="text" placeholder="Title"  />
+         <SimpleMDE placeholder='Description' />
           <Button>Submit New Issue</Button>
         </div>
       </MaxWidthWrapper>

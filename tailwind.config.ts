@@ -12,7 +12,7 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        '8xl': '14'
+        '8xl': '1408px'
       },
       colors: {
         border: 'hsl(var(--border))',

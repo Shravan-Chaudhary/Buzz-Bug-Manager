@@ -10,6 +10,7 @@ import axios from 'axios'
 import { useToast } from '@/components/ui/use-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateIssueSchema, createIssueSchema } from '@/app/validationSchemas'
+import ErrorMessage from '@/components/ui/error-message'
 
 const IssueForm = () => {
   const {
@@ -44,13 +45,13 @@ const IssueForm = () => {
     <form className="max-w-xl space-y-4" onSubmit={handleSubmit(submitForm)}>
       <h1>Create New Issue</h1>
       <Input type="text" placeholder="Title" {...register('title')} />
-      {errors.title && <p className="text-red-500">{errors.title.message}</p>}
+      <ErrorMessage>{errors.title?.message}</ErrorMessage>
       <Controller
         name="description"
         control={control}
         render={({ field }) => <SimpleMDE placeholder="Description" {...field} />}
       />
-      {errors.description && <p className="text-red-500">{errors.description.message}</p>}
+      <ErrorMessage>{errors.description?.message}</ErrorMessage>
       <Button>Submit New Issue</Button>
     </form>
   )

@@ -5,6 +5,7 @@ import './globals.css'
 import Navbar from './Navbar'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <Navbar />
           <main>{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

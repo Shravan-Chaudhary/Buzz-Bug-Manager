@@ -7,6 +7,7 @@ import 'easymde/dist/easymde.min.css'
 import { useForm, Controller } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import { useToast } from '@/components/ui/use-toast'
 
 interface IssueForm {
   title: string
@@ -16,16 +17,22 @@ interface IssueForm {
 const IssueForm = () => {
   const { register, handleSubmit, control } = useForm<IssueForm>()
   const router = useRouter()
+  const { toast } = useToast()
 
   const submitForm = async (data: IssueForm) => {
-    const res = await axios('/api/issues', {
-      method: 'POST',
-      data
-    })
-    if (res.status === 201) {
+    try {
+      const res = await axios('/api/issues', {
+        method: 'POST',
+        data
+      })
       router.push('/issues')
-    } else {
-      alert('Something went wrong!')
+    } catch (err) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem with your request.',
+        duration: 3000
+      })
     }
   }
 

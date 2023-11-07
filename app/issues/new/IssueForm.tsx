@@ -11,6 +11,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateIssueSchema, createIssueSchema } from '@/app/validationSchemas'
 import ErrorMessage from '@/components/ui/error-message'
+import Spinner from '@/components/ui/spinner'
 
 const IssueForm = () => {
   const {
@@ -21,17 +22,20 @@ const IssueForm = () => {
   } = useForm<CreateIssueSchema>({
     resolver: zodResolver(createIssueSchema)
   })
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
   const router = useRouter()
   const { toast } = useToast()
 
   const submitForm = async (data: CreateIssueSchema) => {
     try {
+      setIsSubmitting(true)
       const res = await axios('/api/issues', {
         method: 'POST',
         data
       })
       router.push('/issues')
     } catch (err) {
+      setIsSubmitting(false)
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong.',
@@ -52,9 +56,13 @@ const IssueForm = () => {
         render={({ field }) => <SimpleMDE placeholder="Description" {...field} />}
       />
       <ErrorMessage>{errors.description?.message}</ErrorMessage>
-      <Button>Submit New Issue</Button>
+      <Button disabled={isSubmitting}>
+        <span className="mr-3">Submit New Issue</span> {isSubmitting && <Spinner />}
+      </Button>
     </form>
   )
 }
+
+// TODO: Pop a toaster when the issue is created successfully
 
 export default IssueForm

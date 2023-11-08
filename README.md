@@ -1,6 +1,6 @@
-# Issue Tracker
+# Bug Manager
 
-Issue Tracker is a web application designed to help users track and manage bugs in their applications. It provides an intuitive interface for creating, updating, and managing issues, making it easier than ever to keep track of bugs and ensure they're resolved in a timely manner.
+Bug Manager is a web application designed to help users track and manage bugs in their applications. It provides an intuitive interface for creating, updating, and managing issues, making it easier than ever to keep track of bugs and ensure they're resolved in a timely manner.
 
 ## Tech Stack
 
@@ -20,13 +20,13 @@ Follow these steps to set up the project on your local machine:
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/yourusername/issue-tracker.git
+git clone https://github.com/Shravan-Chaudhary/bug-manager.git
 ```
 
 2.Navigate into the project directory:
 
 ```shell
-cd issue-tracker
+cd bug-manager
 ```
 
 3. Install the project dependencies
@@ -49,7 +49,7 @@ To create a new issue, navigate to the "New Issue" page and fill out the form wi
 You can update an issue's details or mark it as resolved by clicking on the issue in the list and making the desired changes on the issue's page.
 
 Contributing
-Contributions to Issue Tracker are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute.
+Contributions to Bug Manager are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute.
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.

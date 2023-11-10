@@ -12,6 +12,7 @@ This application is built with the following technologies:
 - [Prisma](https://www.prisma.io/) as the database access layer
 - [NextAuth.js](https://next-auth.js.org/) for authentication
 - [PostgreSQL](https://www.postgresql.org/) as the relational database system
+- [Docker](https://www.docker.com/) to run postgre locally for development
 
 ## Setup
 
@@ -23,7 +24,7 @@ Follow these steps to set up the project on your local machine:
 git clone https://github.com/Shravan-Chaudhary/bug-manager.git
 ```
 
-2.Navigate into the project directory:
+2. Navigate into the project directory:
 
 ```shell
 cd bug-manager
@@ -35,10 +36,16 @@ cd bug-manager
 yarn install
 ```
 
-4. Start the development server:
+4. Running The App
 
 ```shell
 yarn dev
+```
+
+5. Setting Up the Database (This command will run a container with postgre image)
+
+```shell
+docker-compose up -d
 ```
 
 The application should now be running at http://localhost:3000.

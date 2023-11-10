@@ -1,9 +1,13 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { buttonVariants } from '@/components/ui/button'
+import prisma from '@/prisma/client'
 import Link from 'next/link'
 import React from 'react'
 
-const IssuePage = () => {
+const IssuePage = async () => {
+  const issues = await prisma.issue.findMany({})
+  console.log(issues)
+
   return (
     <>
       <MaxWidthWrapper>

@@ -8,8 +8,8 @@ interface Props {
 
 const statusMap: Record<Status, { label: string; color: 'red' | 'green' | 'indigo' }> = {
   OPEN: { label: 'Open', color: 'red' },
-  IN_PROGRESS: { label: 'In Progress', color: 'green' },
-  CLOSED: { label: 'Closed', color: 'indigo' }
+  IN_PROGRESS: { label: 'In Progress', color: 'indigo' },
+  CLOSED: { label: 'Closed', color: 'green' }
 }
 
 const IssueStatusBadge = ({ status }: Props) => {

@@ -5,7 +5,7 @@ import delay from 'delay'
 import IssueActions from './IssueActions'
 
 const IssuePage = async () => {
-  await delay(5000)
+  await delay(2000)
   return (
     <>
       <MaxWidthWrapper>

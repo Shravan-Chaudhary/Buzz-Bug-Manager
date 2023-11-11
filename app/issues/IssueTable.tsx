@@ -13,7 +13,6 @@ import Link from 'next/link'
 
 const IssueTable = async () => {
   const issues = await prisma.issue.findMany({})
-  console.log(issues)
 
   return (
     <div className="border border-neutral-300 rounded-md p-2">

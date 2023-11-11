@@ -33,7 +33,7 @@ const IssueDetailPage = async ({ params }: Props) => {
           <IssueStatusBadge status={issue.status} />
           <TypographyLead>{issue.createdAt.toDateString()}</TypographyLead>
         </div>
-        <Card className="my-6 p-2 px-4 flex items-center">
+        <Card className="w-[700px] my-6 p-2 px-4 flex items-center">
           <div className="flex items-center ">
             <TypographyP>{issue.description}</TypographyP>
           </div>

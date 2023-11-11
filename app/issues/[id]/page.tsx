@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card'
 import prisma from '@/prisma/client'
 import { notFound } from 'next/navigation'
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 interface Props {
   params: {
@@ -35,7 +36,7 @@ const IssueDetailPage = async ({ params }: Props) => {
         </div>
         <Card className="w-[700px] my-6 p-2 px-4 flex items-center">
           <div className="flex items-center ">
-            <TypographyP>{issue.description}</TypographyP>
+            <ReactMarkdown className="prose">{issue.description}</ReactMarkdown>
           </div>
         </Card>
       </MaxWidthWrapper>

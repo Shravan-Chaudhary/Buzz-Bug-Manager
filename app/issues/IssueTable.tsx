@@ -9,6 +9,7 @@ import {
   TableRow
 } from '@/components/ui/table'
 import prisma from '@/prisma/client'
+import Link from 'next/link'
 
 const IssueTable = async () => {
   const issues = await prisma.issue.findMany({})
@@ -29,7 +30,7 @@ const IssueTable = async () => {
           {issues.map((issue) => (
             <TableRow key={issue.id}>
               <TableCell>
-                {issue.title}
+                <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
                 <div className="block md:hidden">
                   <IssueStatusBadge status={issue.status} />
                 </div>

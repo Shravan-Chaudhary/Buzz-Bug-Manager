@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import SimpleMDE from 'react-simplemde-editor'
+import dynamic from 'next/dynamic'
 import 'easymde/dist/easymde.min.css'
 import { useForm, Controller } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
@@ -12,6 +12,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateIssueSchema, createIssueSchema } from '@/app/validationSchemas'
 import ErrorMessage from '@/components/ui/error-message'
 import Spinner from '@/components/ui/spinner'
+
+const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
 const IssueForm = () => {
   const {

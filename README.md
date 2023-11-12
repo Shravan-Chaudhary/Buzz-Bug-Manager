@@ -42,7 +42,13 @@ yarn install
 yarn dev
 ```
 
-5. Setting Up the Database (This command will run a container with postgre image)
+5. Migrate Database
+
+```shell
+prisma migrate dev --name init
+```
+
+6. Setting Up the Database (This command will run a container with postgre image)
 
 ```shell
 docker-compose up -d

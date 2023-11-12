@@ -45,7 +45,7 @@ yarn dev
 5. Migrate Database
 
 ```shell
-prisma migrate dev --name init
+npx prisma migrate dev --name init
 ```
 
 6. Setting Up the Database (This command will run a container with postgre image)

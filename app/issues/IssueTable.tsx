@@ -8,8 +8,8 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
+import Link from '@/components/Link'
 import prisma from '@/prisma/client'
-import Link from 'next/link'
 
 const IssueTable = async () => {
   const issues = await prisma.issue.findMany({})
@@ -30,6 +30,7 @@ const IssueTable = async () => {
             <TableRow key={issue.id}>
               <TableCell>
                 <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
+
                 <div className="block md:hidden">
                   <IssueStatusBadge status={issue.status} />
                 </div>

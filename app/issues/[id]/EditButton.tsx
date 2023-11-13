@@ -3,14 +3,14 @@ import Link from 'next/link'
 import { Pencil } from 'lucide-react'
 
 interface Props {
-  id: number
+  issueId: number
 }
 
-const EditButton = ({ id }: Props) => {
+const EditButton = ({ issueId }: Props) => {
   return (
     <>
       <Link
-        href={`/issues/${id}/edit`}
+        href={`/issues/${issueId}/edit`}
         className={buttonVariants({
           variant: 'default',
           size: 'lg'

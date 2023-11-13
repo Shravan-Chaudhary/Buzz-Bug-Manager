@@ -25,8 +25,12 @@ const IssueDetailPage = async ({ params }: Props) => {
     <>
       <MaxWidthWrapper>
         <div className="flex flex-col md:flex-row gap-5">
-          <IssueDetails issue={issue} />
-          <EditButton issueId={issue.id} />
+          <div>
+            <IssueDetails issue={issue} />
+          </div>
+          <div>
+            <EditButton issueId={issue.id} />
+          </div>
         </div>
       </MaxWidthWrapper>
     </>

@@ -12,10 +12,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { CreateIssueSchema, issueSchema } from '@/app/validationSchemas'
 import ErrorMessage from '@/components/ui/error-message'
 import Spinner from '@/components/ui/spinner'
+import { Issue } from '@prisma/client'
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
-const IssueForm = () => {
+interface Props {
+  issue?: Issue
+}
+
+const IssueForm = ({ issue }: Props) => {
   const {
     register,
     handleSubmit,
@@ -49,12 +54,12 @@ const IssueForm = () => {
 
   return (
     <form className="max-w-xl space-y-4" onSubmit={handleSubmit(submitForm)}>
-      <h1>Create New Issue</h1>
-      <Input type="text" placeholder="Title" {...register('title')} />
+      <Input type="text" defaultValue={issue?.title} placeholder="Title" {...register('title')} />
       <ErrorMessage>{errors.title?.message}</ErrorMessage>
       <Controller
         name="description"
         control={control}
+        defaultValue={issue?.description}
         render={({ field }) => <SimpleMDE placeholder="Description" {...field} />}
       />
       <ErrorMessage>{errors.description?.message}</ErrorMessage>

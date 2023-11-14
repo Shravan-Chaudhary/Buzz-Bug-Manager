@@ -24,7 +24,7 @@ const IssueDetailPage = async ({ params }: Props) => {
   return (
     <>
       <MaxWidthWrapper>
-        <div className="flex flex-col md:flex-row gap-5">
+        <div className="flex flex-col md:flex-row gap-5 flex-wrap">
           <div>
             <IssueDetails issue={issue} />
           </div>

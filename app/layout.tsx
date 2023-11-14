@@ -11,7 +11,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Bug Manager',
-  description: 'A tool to manage bugs in your software projects.'
+  description: 'A tool to manage bugs in your software projects.',
+  icons: {
+    icon: '/favicon.ico'
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

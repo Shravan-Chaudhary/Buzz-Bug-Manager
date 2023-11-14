@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import { useToast } from '@/components/ui/use-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CreateIssueSchema, createIssueSchema } from '@/app/validationSchemas'
+import { CreateIssueSchema, issueSchema } from '@/app/validationSchemas'
 import ErrorMessage from '@/components/ui/error-message'
 import Spinner from '@/components/ui/spinner'
 
@@ -22,7 +22,7 @@ const IssueForm = () => {
     control,
     formState: { errors }
   } = useForm<CreateIssueSchema>({
-    resolver: zodResolver(createIssueSchema)
+    resolver: zodResolver(issueSchema)
   })
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
   const router = useRouter()

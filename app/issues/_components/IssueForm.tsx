@@ -43,6 +43,7 @@ const IssueForm = ({ issue }: Props) => {
           data
         })
       router.push('/issues')
+      router.refresh()
     } catch (err) {
       setIsSubmitting(false)
       toast({

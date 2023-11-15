@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Bug Manager',
   description: 'A tool to manage bugs in your software projects.',
   icons: {
-    icon: '/favicon.ico'
+    icon: './favicon.ico'
   }
 }
 

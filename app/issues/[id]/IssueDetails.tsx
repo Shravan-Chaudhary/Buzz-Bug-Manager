@@ -17,7 +17,7 @@ const IssueDetails = ({ issue }: Props) => {
         <IssueStatusBadge status={issue.status} />
         <TypographyLead>{issue.createdAt.toDateString()}</TypographyLead>
       </div>
-      <Card className="w-[700px] my-6 p-2 px-4 flex items-center">
+      <Card className="w-full my-6 p-4 flex items-center ">
         <div className="flex items-center ">
           <ReactMarkdown className="prose">{issue.description}</ReactMarkdown>
         </div>

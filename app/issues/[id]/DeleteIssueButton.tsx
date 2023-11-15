@@ -1,6 +1,6 @@
-import { buttonVariants } from '@/components/ui/button'
+'use client'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { TrashIcon } from 'lucide-react'
-import Link from 'next/link'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,26 +12,24 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   issueId: number
 }
 
 const DeleteIssueButton = ({ issueId }: Props) => {
+  const router = useRouter()
+
   return (
     <>
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Link
-            href={`/issues/${issueId}`}
-            className={buttonVariants({
-              variant: 'destructive',
-              size: 'lg'
-            })}
-          >
+          <Button variant={'destructive'} size={'lg'}>
             <TrashIcon className="mr-2 w-4 h-4" />
             Delete
-          </Link>
+          </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
@@ -42,8 +40,15 @@ const DeleteIssueButton = ({ issueId }: Props) => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction className="bg-destructive hover:bg-destructive/90">
-              Continue
+            <AlertDialogAction
+              className="bg-destructive hover:bg-destructive/90"
+              onClick={async () => {
+                await axios.delete(`/api/issues/${issueId}`)
+                router.push('/issues')
+                router.refresh()
+              }}
+            >
+              Delete
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

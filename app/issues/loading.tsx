@@ -24,7 +24,7 @@ const LoadingIssuesPage = () => {
           <IssueActions />
           <div className="border border-neutral-300 rounded-md p-2">
             <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
+              <TableCaption>A list of your recent Issues.</TableCaption>
               <TableHeader>
                 <TableRow>
                   <TableHead>Issue</TableHead>

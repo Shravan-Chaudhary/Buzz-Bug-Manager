@@ -15,6 +15,7 @@ import {
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import Spinner from '@/components/ui/spinner'
 
 interface Props {
   issueId: number
@@ -23,9 +24,11 @@ interface Props {
 const DeleteIssueButton = ({ issueId }: Props) => {
   const router = useRouter()
   const [error, setError] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   const deleteIssue = async () => {
     try {
+      setIsDeleting(true)
       await axios.delete(`/api/issues/${issueId}`)
       router.push('/issues')
       router.refresh()
@@ -38,9 +41,9 @@ const DeleteIssueButton = ({ issueId }: Props) => {
     <>
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant={'destructive'} size={'lg'}>
+          <Button disabled={isDeleting} variant={'destructive'} size={'lg'}>
             <TrashIcon className="mr-2 w-4 h-4" />
-            Delete
+            <span className="mr-3">Delete</span> {isDeleting && <Spinner />}
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>

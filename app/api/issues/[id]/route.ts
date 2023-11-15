@@ -8,7 +8,9 @@ interface Props {
   }
 }
 
+// Update Issue
 export async function PATCH(request: NextRequest, { params }: Props) {
+  // validate request body
   const requestBody = await request.json()
   const validatedBody = issueSchema.safeParse(requestBody)
   if (!validatedBody.success) {
@@ -39,4 +41,27 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   })
 
   return NextResponse.json(updatedIssue, { status: 201 })
+}
+
+// Delete Issue
+export async function DELETE(request: NextRequest, { params }: Props) {
+  // find issue by id
+  const issue = await prisma.issue.findUnique({
+    where: {
+      id: parseInt(params.id)
+    }
+  })
+
+  if (!issue) {
+    return NextResponse.json({ message: 'Issue not found' }, { status: 404 })
+  }
+
+  // delete issue
+  await prisma.issue.delete({
+    where: {
+      id: issue.id
+    }
+  })
+
+  return NextResponse.json(issue.id, { status: 200 })
 }

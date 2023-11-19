@@ -1,18 +1,17 @@
-import React from 'react'
-import IssueStatusBadge from '@/components/IssueStatusBadge'
+import React from "react"
 import {
   Table,
+  TableBody,
   TableCaption,
+  TableCell,
+  TableHead,
   TableHeader,
   TableRow,
-  TableHead,
-  TableBody,
-  TableCell
-} from '@/components/ui/table'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import IssueActions from './IssueActions'
+} from "@/components/ui/table"
+import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
+import IssueActions from "./IssueActions"
 
 const LoadingIssuesPage = () => {
   const issues = [1, 2, 3, 4, 5]
@@ -22,7 +21,7 @@ const LoadingIssuesPage = () => {
       <MaxWidthWrapper>
         <div>
           <IssueActions />
-          <div className="border border-neutral-300 rounded-md p-2">
+          <div className="rounded-md border border-neutral-300 p-2">
             <Table>
               <TableCaption>A list of your recent Issues.</TableCaption>
               <TableHeader>

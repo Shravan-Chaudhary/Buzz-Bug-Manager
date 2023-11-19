@@ -2,6 +2,8 @@
   "extends": ["next/core-web-vitals", "standard", "plugin:tailwindcss/recommended", "prettier"],
   "rules": {
     "no-console": "error",
-    "dot-notation": "error"
+    "dot-notation": "error",
+    "tailwindcss/no-custom-classname": "off",
+    "no-unused-vars": "error"
   }
 }

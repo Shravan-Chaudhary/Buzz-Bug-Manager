@@ -1,6 +1,6 @@
-'use client'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { TrashIcon } from 'lucide-react'
+"use client"
+import { Button } from "@/components/ui/button"
+import { TrashIcon } from "lucide-react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,12 +10,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger
-} from '@/components/ui/alert-dialog'
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import Spinner from '@/components/ui/spinner'
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import axios from "axios"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import Spinner from "@/components/ui/spinner"
 
 interface Props {
   issueId: number
@@ -30,7 +30,7 @@ const DeleteIssueButton = ({ issueId }: Props) => {
     try {
       setIsDeleting(true)
       await axios.delete(`/api/issues/${issueId}`)
-      router.push('/issues')
+      router.push("/issues")
       router.refresh()
     } catch (error) {
       setError(true)
@@ -41,8 +41,8 @@ const DeleteIssueButton = ({ issueId }: Props) => {
     <>
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button disabled={isDeleting} variant={'destructive'} size={'lg'}>
-            <TrashIcon className="mr-2 w-4 h-4" />
+          <Button disabled={isDeleting} variant={"destructive"} size={"lg"}>
+            <TrashIcon className="mr-2 h-4 w-4" />
             <span className="mr-3">Delete</span> {isDeleting && <Spinner />}
           </Button>
         </AlertDialogTrigger>

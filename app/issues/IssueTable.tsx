@@ -1,4 +1,4 @@
-import IssueStatusBadge from '@/components/IssueStatusBadge'
+import IssueStatusBadge from "@/components/IssueStatusBadge"
 import {
   Table,
   TableBody,
@@ -6,16 +6,16 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table'
-import Link from '@/components/Link'
-import prisma from '@/prisma/client'
+  TableRow,
+} from "@/components/ui/table"
+import Link from "@/components/Link"
+import prisma from "@/prisma/client"
 
 const IssueTable = async () => {
   const issues = await prisma.issue.findMany({})
 
   return (
-    <div className="border border-neutral-300 rounded-md p-2">
+    <div className="rounded-md border border-neutral-300 p-2">
       <Table>
         <TableCaption>A list of your recent Issues.</TableCaption>
         <TableHeader>

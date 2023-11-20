@@ -28,3 +28,9 @@ yarn.lock
 
 # Ignore .idea files
 .idea
+
+# Ignore all files in the auth directory
+/app/api/auth/*
+
+# But don't ignore route.ts in the [...nextauth] directory
+!/app/api/auth/[...nextauth]/route.ts

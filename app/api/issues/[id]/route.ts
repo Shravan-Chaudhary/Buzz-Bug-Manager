@@ -1,6 +1,6 @@
-import { issueSchema } from '@/app/validationSchemas'
-import prisma from '@/prisma/client'
-import { NextRequest, NextResponse } from 'next/server'
+import { issueSchema } from "@/app/validationSchemas"
+import prisma from "@/prisma/client"
+import { NextRequest, NextResponse } from "next/server"
 
 interface Props {
   params: {
@@ -20,24 +20,24 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   // find issue by id
   const issue = await prisma.issue.findUnique({
     where: {
-      id: parseInt(params.id)
-    }
+      id: parseInt(params.id),
+    },
   })
 
   if (!issue) {
-    return NextResponse.json({ message: 'Issue not found' }, { status: 404 })
+    return NextResponse.json({ message: "Issue not found" }, { status: 404 })
   }
 
   // update issue
   const { title, description } = validatedBody.data
   const updatedIssue = await prisma.issue.update({
     where: {
-      id: issue.id
+      id: issue.id,
     },
     data: {
       title,
-      description
-    }
+      description,
+    },
   })
 
   return NextResponse.json(updatedIssue, { status: 201 })
@@ -48,19 +48,19 @@ export async function DELETE(request: NextRequest, { params }: Props) {
   // find issue by id
   const issue = await prisma.issue.findUnique({
     where: {
-      id: parseInt(params.id)
-    }
+      id: parseInt(params.id),
+    },
   })
 
   if (!issue) {
-    return NextResponse.json({ message: 'Issue not found' }, { status: 404 })
+    return NextResponse.json({ message: "Issue not found" }, { status: 404 })
   }
 
   // delete issue
   await prisma.issue.delete({
     where: {
-      id: issue.id
-    }
+      id: issue.id,
+    },
   })
 
   return NextResponse.json(issue.id, { status: 200 })

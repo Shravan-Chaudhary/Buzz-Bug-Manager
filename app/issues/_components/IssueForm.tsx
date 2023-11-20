@@ -1,20 +1,20 @@
-'use client'
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import dynamic from 'next/dynamic'
-import 'easymde/dist/easymde.min.css'
-import { useForm, Controller } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
-import axios from 'axios'
-import { useToast } from '@/components/ui/use-toast'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { CreateIssueSchema, issueSchema } from '@/app/validationSchemas'
-import ErrorMessage from '@/components/ui/error-message'
-import Spinner from '@/components/ui/spinner'
-import { Issue } from '@prisma/client'
+"use client"
+import React from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import dynamic from "next/dynamic"
+import "easymde/dist/easymde.min.css"
+import { useForm, Controller } from "react-hook-form"
+import { useRouter } from "next/navigation"
+import axios from "axios"
+import { useToast } from "@/components/ui/use-toast"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { CreateIssueSchema, issueSchema } from "@/app/validationSchemas"
+import ErrorMessage from "@/components/ui/error-message"
+import Spinner from "@/components/ui/spinner"
+import { Issue } from "@prisma/client"
 
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), { ssr: false })
 
 interface Props {
   issue?: Issue
@@ -25,9 +25,9 @@ const IssueForm = ({ issue }: Props) => {
     register,
     handleSubmit,
     control,
-    formState: { errors }
+    formState: { errors },
   } = useForm<CreateIssueSchema>({
-    resolver: zodResolver(issueSchema)
+    resolver: zodResolver(issueSchema),
   })
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
   const router = useRouter()
@@ -38,26 +38,26 @@ const IssueForm = ({ issue }: Props) => {
       setIsSubmitting(true)
       if (issue) await axios.patch(`/api/issues/${issue.id}`, data)
       else
-        await axios('/api/issues', {
-          method: 'POST',
-          data
+        await axios("/api/issues", {
+          method: "POST",
+          data,
         })
-      router.push('/issues')
+      router.push("/issues")
       router.refresh()
     } catch (err) {
       setIsSubmitting(false)
       toast({
-        variant: 'destructive',
-        title: 'Uh oh! Something went wrong.',
-        description: 'There was a problem with your request.',
-        duration: 3000
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        duration: 3000,
       })
     }
   }
 
   return (
     <form className="max-w-xl space-y-4" onSubmit={handleSubmit(submitForm)}>
-      <Input type="text" defaultValue={issue?.title} placeholder="Title" {...register('title')} />
+      <Input type="text" defaultValue={issue?.title} placeholder="Title" {...register("title")} />
       <ErrorMessage>{errors.title?.message}</ErrorMessage>
       <Controller
         name="description"
@@ -67,7 +67,7 @@ const IssueForm = ({ issue }: Props) => {
       />
       <ErrorMessage>{errors.description?.message}</ErrorMessage>
       <Button disabled={isSubmitting}>
-        <span className="mr-3">{issue ? 'Update Issue' : 'Submit New Issue'}</span>{' '}
+        <span className="mr-3">{issue ? "Update Issue" : "Submit New Issue"}</span>{" "}
         {isSubmitting && <Spinner />}
       </Button>
     </form>

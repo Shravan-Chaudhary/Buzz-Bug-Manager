@@ -1,15 +1,15 @@
-import { buttonVariants } from '@/components/ui/button'
-import Link from 'next/link'
-import React from 'react'
+import { buttonVariants } from "@/components/ui/button"
+import Link from "next/link"
+import React from "react"
 
 const IssueActions = () => {
   return (
     <div className="mb-5">
       <Link
-        href={'/issues/new'}
+        href={"/issues/new"}
         className={buttonVariants({
-          variant: 'default',
-          size: 'lg'
+          variant: "default",
+          size: "lg",
         })}
       >
         New Issue

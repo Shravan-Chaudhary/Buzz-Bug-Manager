@@ -1,7 +1,7 @@
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import React from 'react'
-import IssueForm from '../_components/IssueForm'
-import { TypographyH2 } from '@/components/typography/typographyH2'
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
+import React from "react"
+import IssueForm from "../_components/IssueForm"
+import { TypographyH2 } from "@/components/typography/typographyH2"
 
 const NewIssuePage = () => {
   return (

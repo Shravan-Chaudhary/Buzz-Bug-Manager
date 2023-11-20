@@ -1,8 +1,8 @@
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import React from 'react'
-import IssueTable from './IssueTable'
-import delay from 'delay'
-import IssueActions from './IssueActions'
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
+import React from "react"
+import IssueTable from "./IssueTable"
+import delay from "delay"
+import IssueActions from "./IssueActions"
 
 const IssuePage = async () => {
   await delay(2000)
@@ -16,5 +16,5 @@ const IssuePage = async () => {
   )
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic"
 export default IssuePage

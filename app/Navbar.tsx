@@ -6,6 +6,15 @@ import { usePathname } from "next/navigation"
 import logo from "@/public/bug.svg"
 import { useSession } from "next-auth/react"
 import { buttonVariants } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const Navbar = () => {
   const currentPath = usePathname()
@@ -15,6 +24,7 @@ const Navbar = () => {
     { label: "Issues", href: "/issues" },
   ]
 
+  // @ts-ignore
   return (
     <nav className="sticky inset-x-0 top-0 z-40 mb-5 h-14 w-full border-b border-gray-200 bg-white/30 backdrop-blur-lg transition-all ">
       <MaxWidthWrapper className="flex h-14 items-center justify-between border-b border-zinc-200">
@@ -52,15 +62,29 @@ const Navbar = () => {
             </Link>
           )}
           {status === "authenticated" && (
-            <Link
-              href={"/api/auth/signout"}
-              className={buttonVariants({
-                size: "lg",
-                variant: "ghost",
-              })}
-            >
-              Log Out
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar>
+                  <AvatarImage src={session.user!.image || ""} alt="Profile Image" />
+                  <AvatarFallback>{session?.user!.name![0].toUpperCase() || "CN"}</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className={"p-2.5 text-center"}>
+                <DropdownMenuLabel>{session?.user!.email}</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className={"mt-2 flex items-center justify-center"}>
+                  <Link
+                    href={"/api/auth/signout"}
+                    className={buttonVariants({
+                      variant: "ghost",
+                      size: "sm",
+                    })}
+                  >
+                    Log Out
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           )}
         </div>
       </MaxWidthWrapper>

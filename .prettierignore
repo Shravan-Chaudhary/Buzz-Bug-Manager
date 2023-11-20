@@ -12,6 +12,7 @@ coverage
 
 # Ignore .env files
 .env*
+.env*.local
 
 # Ignore log files
 *.log

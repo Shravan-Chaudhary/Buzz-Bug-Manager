@@ -2,7 +2,7 @@ import React from "react"
 import { Inter as FontSans } from "next/font/google"
 import type { Metadata } from "next"
 import "./globals.css"
-import Navbar from "./Navbar"
+// import Navbar from "./Navbar"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { Toaster } from "@/components/ui/toaster"
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
+            {/* <Navbar /> */}
             <main>{children}</main>
             <Toaster />
           </ThemeProvider>

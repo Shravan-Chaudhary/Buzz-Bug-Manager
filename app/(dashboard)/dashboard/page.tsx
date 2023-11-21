@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper className="">
-        <h1>Hello World</h1>
+        <h1>Dashboard</h1>
       </MaxWidthWrapper>
     </>
   )

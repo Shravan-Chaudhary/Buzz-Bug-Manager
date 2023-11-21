@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-const Navbar = () => {
+const MainNavDashboard = () => {
   // @ts-ignore
   return (
     <nav className="sticky inset-x-0 top-0 z-40 mb-5 h-14 w-full border-b border-gray-200 bg-white/30 backdrop-blur-lg transition-all ">
@@ -33,8 +33,8 @@ const NavLinks = () => {
   const currentPath = usePathname()
 
   const links = [
-    { label: "Home", href: "/" },
-    { label: "Issues", href: "/issues" },
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Issues", href: "/dashboard/issues" },
   ]
 
   return (
@@ -106,6 +106,6 @@ const AuthStatus = () => {
   )
 }
 
-export default Navbar
+export default MainNavDashboard
 
 // postgres://bitznatch1110:Blxz2FvpOdR9@ep-winter-tree-91319555.ap-southeast-1.aws.neon.tech/issue-tracker

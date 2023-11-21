@@ -4,9 +4,9 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Navbar from "./Navbar"
 import { cn } from "@/lib/utils"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/ThemeProvider"
 import { Toaster } from "@/components/ui/toaster"
-import AuthProvider from "@/app/auth/Provider"
+import AuthProvider from "@/components/Provider"
 import { siteConfig } from "@/config/site"
 
 const fontSans = FontSans({
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   keywords: ["Next.js", "React", "Tailwind CSS", "Server Components", "Radix UI"],
   authors: [{ name: "shravan-chaudhary" }],
   creator: "shravan-chaudhary",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
+  // openGraph: {
+  //   type: "website",
+  //   locale: "en_US",
+  //   url: siteConfig.url,
+  //   title: siteConfig.name,
+  //   description: siteConfig.description,
+  //   siteName: siteConfig.name,
+  // },
   icons: {
     icon: "./favicon.ico",
   },

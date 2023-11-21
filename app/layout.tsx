@@ -1,27 +1,46 @@
 import React from "react"
+import { Inter as FontSans } from "next/font/google"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "./Navbar"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import AuthProvider from "@/app/auth/Provider"
+import { siteConfig } from "@/config/site"
 
-const inter = Inter({ subsets: ["latin"] })
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 export const metadata: Metadata = {
-  title: "Bug Manager",
-  description: "A tool to manage bugs in your software projects.",
+  title: {
+    default: siteConfig.name,
+    template: "%s | " + siteConfig.name,
+  },
+  description: siteConfig.description,
+  keywords: ["Next.js", "React", "Tailwind CSS", "Server Components", "Radix UI"],
+  authors: [{ name: "shravan-chaudhary" }],
+  creator: "shravan-chaudhary",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
   icons: {
     icon: "./favicon.ico",
   },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen font-sans antialiased bg-zinc-100", inter.className)}>
+      <body className={cn("min-h-screen font-sans antialiased", fontSans.variable)}>
         <AuthProvider>
           <ThemeProvider
             attribute="class"

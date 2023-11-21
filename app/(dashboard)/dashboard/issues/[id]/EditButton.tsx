@@ -10,7 +10,7 @@ const EditButton = ({ issueId }: Props) => {
   return (
     <>
       <Link
-        href={`/issues/${issueId}/edit`}
+        href={`/dashboard/issues/${issueId}/edit`}
         className={buttonVariants({
           variant: "default",
           size: "lg",

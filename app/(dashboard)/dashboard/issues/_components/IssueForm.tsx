@@ -42,7 +42,7 @@ const IssueForm = ({ issue }: Props) => {
           method: "POST",
           data,
         })
-      router.push("/issues")
+      router.push("/dashboard/issues")
       router.refresh()
     } catch (err) {
       setIsSubmitting(false)

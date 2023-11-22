@@ -1,6 +1,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 import React from "react"
-import IssueForm from "@/app/issues/_components/IssueForm"
+import IssueForm from "@/app/(dashboard)/dashboard/issues/_components/IssueForm"
 import { TypographyH2 } from "@/components/typography/typographyH2"
 import prisma from "@/prisma/client"
 import { notFound } from "next/navigation"

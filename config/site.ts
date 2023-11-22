@@ -6,6 +6,6 @@ export const siteConfig: SiteConfig = {
   url: "https://buzz.com", // replace with your actual URL
   links: {
     twitter: "https://twitter.com/buzz", // replace with your actual Twitter URL
-    github: "https://github.com/username/buzz", // replace with your actual GitHub URL
+    github: "https://github.com/Shravan-Chaudhary/Buzz-Bug-Manager", // replace with your actual GitHub URL
   },
 }

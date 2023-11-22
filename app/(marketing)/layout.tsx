@@ -1,5 +1,5 @@
 import React from "react"
-import MainNav from "./_components/MainNav"
+import MainNavMarketing from "./_components/MainNavMarketing"
 
 interface MarketingLayoutProps {
   children: React.ReactNode
@@ -8,7 +8,7 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="grainy min-h-screen">
-      <MainNav />
+      <MainNavMarketing />
       <main>{children}</main>
     </div>
   )

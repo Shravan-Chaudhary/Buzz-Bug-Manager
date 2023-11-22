@@ -6,7 +6,7 @@ const IssueActions = () => {
   return (
     <div className="mb-5">
       <Link
-        href={"/issues/new"}
+        href={"/dashboard/issues/new"}
         className={buttonVariants({
           variant: "default",
           size: "lg",

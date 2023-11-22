@@ -46,7 +46,7 @@ export default function Home() {
 
         <section id="features" className="mt-40 space-y-6 py-8">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-6xl">Features</h2>
+            <h2 className="text-3xl font-bold leading-[1.1] sm:text-4xl md:text-6xl">Features</h2>
             <p className="max-w-prose leading-normal text-muted-foreground sm:text-lg sm:leading-7">
               This project is an experiment to see how a modern app, with features like auth,
               subscriptions, API routes, and static pages would work in Next.js 13 app dir.
